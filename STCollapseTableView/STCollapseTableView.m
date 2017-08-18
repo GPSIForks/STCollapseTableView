@@ -91,11 +91,13 @@
 
 - (void)setDelegate:(id<UITableViewDelegate>)newDelegate
 {
-    if (newDelegate != self.collapseDelegate)
-    {
-        self.collapseDelegate = newDelegate;
-        [super setDelegate:self.collapseDelegate?self:nil];
-    }
+    if (newDelegate) {
+        if (newDelegate != self.collapseDelegate)
+        {
+            self.collapseDelegate = newDelegate;
+            [super setDelegate:self.collapseDelegate?self:nil];
+        }
+   }
 }
 
 - (id)forwardingTargetForSelector:(SEL)aSelector
